@@ -1,4 +1,4 @@
-import errorImage from "@/assets/error-image.jpeg";
+import errorImage from "@/assets/react.svg";
 const getCroppedImageUrl = (url: string) => {
   if (!url) return errorImage;
   const target = "media/";
