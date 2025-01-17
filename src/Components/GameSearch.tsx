@@ -11,6 +11,8 @@ export default function GameSearch({ onSearch }: Param) {
   const ref = useRef<HTMLInputElement>(null);
   return (
     <form
+      id="search"
+      name="search"
       style={{ width: "100%", borderRadius: 35 }}
       onSubmit={(e) => {
         e.preventDefault();

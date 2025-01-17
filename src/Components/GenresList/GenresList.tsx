@@ -8,12 +8,12 @@ interface Param {
 }
 
 export default function GenresList({ selectedGenre }: Param) {
-  const { data, error, loading } = useGenres();
-  if (loading) return <TextSkeleton />;
+  const { data, error, isLoading } = useGenres();
+  if (isLoading) return <TextSkeleton />;
   return (
     <>
-      {error && <Text>{error}</Text>}
-      {data.map((genre) => (
+      {error && <Text>{error.message}</Text>}
+      {data?.results.map((genre) => (
         <HStack key={genre.id}>
           <Image
             boxSize="50px"

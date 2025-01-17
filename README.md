@@ -16,6 +16,10 @@
 
 # install Vercel To Deploy # :: npm i -g vercel
 
+# install React Query # :: npm i @tanstack/react-query
+
+# install React Query # :: npm i @tanstack/react-query-devtools
+
 ##############################################################################
 
 # install Chakra Whit Vite # :: npm i @chakra-ui/react @emotion/react
@@ -26,6 +30,6 @@
 
 # install Show All List Snippet # :: npx @chakra-ui/cli snippet list
 
-# install Vite-paths {Name Ui} # :: npm i -D vite-tsconfig-paths
+# install Vite-paths # :: npm i -D vite-tsconfig-paths
 
 ##############################################################################

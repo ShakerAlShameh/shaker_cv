@@ -25,7 +25,7 @@ export default function PlatformMenu({ selectedPlatform, label }: Param) {
           </Button>
         </MenuTrigger>
         <MenuContent position={"absolute"}>
-          {data.map((platform) => (
+          {data?.results.map((platform: PlatformFilter) => (
             <MenuItem
               key={platform.id}
               onClick={() => {

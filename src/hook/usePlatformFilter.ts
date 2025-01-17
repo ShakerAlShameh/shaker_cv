@@ -1,4 +1,6 @@
-import useData from "./useData";
+import ApiClient from "@/services/api-client";
+import { useQuery } from "@tanstack/react-query";
+const apiClient = new ApiClient<PlatformFilter>("platforms/lists/parents");
 
 export interface PlatformFilter {
   id: number;
@@ -7,6 +9,10 @@ export interface PlatformFilter {
 }
 
 const usePlatformFilter = () =>
-  useData<PlatformFilter>("platforms/lists/parents");
+  useQuery({
+    queryKey: ["platforms"],
+    staleTime: 24 * 60 * 60 * 1000,
+    queryFn: apiClient.getAll,
+  });
 
 export default usePlatformFilter;
