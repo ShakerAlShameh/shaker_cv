@@ -3,16 +3,10 @@ import GameCard from "./GameCard";
 import useGames from "@/hook/useGames";
 import LoadingSkeleton from "../loading/LoadingSkeleton";
 import InfiniteScroll from "react-infinite-scroll-component";
-import { GameQuery } from "@/App";
 import React from "react";
 
-interface Param {
-  gameQuery: GameQuery;
-}
-
-export default function GridGameCard({ gameQuery }: Param) {
-  const { data, error, isLoading, fetchNextPage, hasNextPage } =
-    useGames(gameQuery);
+export default function GridGameCard() {
+  const { data, error, isLoading, fetchNextPage, hasNextPage } = useGames();
   const fetchedGamesCount =
     data?.pages.reduce((total, page) => total + page.results.length, 0) || 0;
   return (

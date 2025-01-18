@@ -1,3 +1,4 @@
+import useGameQueryStore from "@/hook/useGameQueryStore";
 import {
   Box,
   Button,
@@ -8,12 +9,9 @@ import {
 } from "@chakra-ui/react";
 import { BsBoxArrowDownLeft } from "react-icons/bs";
 
-interface Param {
-  selectedSort: (sort: string) => void;
-  label: string | null;
-}
-
-export default function SortSelector({ selectedSort, label }: Param) {
+export default function SortSelector() {
+  const setOrder = useGameQueryStore((e) => e.setOrder);
+  const label = useGameQueryStore((e) => e.gameQuery.ordering);
   const sortItem = [
     { value: "-updated", name: "Relevance" },
     { value: "-added", name: "Date added" },
@@ -37,7 +35,7 @@ export default function SortSelector({ selectedSort, label }: Param) {
             <MenuItem
               key={sort.name}
               onClick={() => {
-                selectedSort(sort.value);
+                setOrder(sort.value);
               }}
               value={sort.name}
             >

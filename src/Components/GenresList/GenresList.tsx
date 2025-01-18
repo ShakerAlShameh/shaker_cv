@@ -1,13 +1,12 @@
-import useGenres, { Genres } from "@/hook/useGenres";
+import useGenres from "@/hook/useGenres";
 import getCroppedImageUrl from "@/services/image-url";
 import { Button, HStack, Image, Text } from "@chakra-ui/react";
 import TextSkeleton from "../loading/TextSkeleton";
+import useGameQueryStore from "@/hook/useGameQueryStore";
 
-interface Param {
-  selectedGenre: (genre: Genres) => void;
-}
+export default function GenresList() {
+  const setGenreId = useGameQueryStore((e) => e.setGenreId);
 
-export default function GenresList({ selectedGenre }: Param) {
   const { data, error, isLoading } = useGenres();
   if (isLoading) return <TextSkeleton />;
   return (
@@ -23,7 +22,7 @@ export default function GenresList({ selectedGenre }: Param) {
             src={getCroppedImageUrl(genre.image_background)}
           />
           <Button
-            onClick={() => selectedGenre(genre)}
+            onClick={() => setGenreId(genre.id)}
             variant={"surface"}
             type="button"
           >

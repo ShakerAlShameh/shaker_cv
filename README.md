@@ -22,6 +22,8 @@
 
 # install Infinite Scroll # :: npm i react-infinite-scroll-component
 
+# install Zustand State Management # :: npm i zustand
+
 ##############################################################################
 
 # install Chakra Whit Vite # :: npm i @chakra-ui/react @emotion/react

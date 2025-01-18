@@ -5,11 +5,7 @@ import { useEffect } from "react";
 import { Toaster, toaster } from "../ui/toaster";
 import GameSearch from "../GameSearch";
 
-interface Param {
-  onSearch: (search: string) => void;
-}
-
-export default function NavBar({ onSearch }: Param) {
+export default function NavBar() {
   const { colorMode } = useColorMode();
   useEffect(() => {
     colorMode === "dark"
@@ -26,11 +22,7 @@ export default function NavBar({ onSearch }: Param) {
   return (
     <HStack padding="15px">
       <Image paddingRight={10} paddingLeft={5} src={logo}></Image>
-      <GameSearch
-        onSearch={(search) => {
-          onSearch(search);
-        }}
-      />
+      <GameSearch />
       <ColorModeButton color={"green"} />
       <Toaster />
     </HStack>

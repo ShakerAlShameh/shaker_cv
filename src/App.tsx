@@ -8,21 +8,12 @@ import {
 import NavBar from "./Components/NavBar/NavBar";
 import GridGameCard from "./Components/GameCard/GridGameCard";
 import GenresList from "./Components/GenresList/GenresList";
-import { useState } from "react";
 import PlatformMenu from "./Components/MenuList/PlatformMenu";
 import SortSelector from "./Components/MenuList/SortSelector";
 import HeadingTitle from "./Components/Heading";
 import HeadingGenres from "./Components/GenresList/HeadingGenres";
 
-export interface GameQuery {
-  genreId?: number;
-  platformsId?: number;
-  ordering: string | null;
-  searchedText: string | null;
-}
-
 export default function App() {
-  const [gameQuery, setGameQuery] = useState<GameQuery>({} as GameQuery);
   return (
     <Grid
       templateColumns={{
@@ -36,39 +27,21 @@ export default function App() {
       }}
     >
       <GridItem area={"nav"}>
-        <NavBar
-          onSearch={(searchedText) => {
-            setGameQuery({ ...gameQuery, searchedText });
-          }}
-        />
+        <NavBar />
       </GridItem>
       <Show when={useBreakpointValue({ base: false, md: true, lg: true })}>
         <GridItem paddingLeft={1} paddingTop={2} area={"side"}>
           <HeadingGenres />
-          <GenresList
-            selectedGenre={(genre) => {
-              setGameQuery({ ...gameQuery, genreId: genre.id });
-            }}
-          />
+          <GenresList />
         </GridItem>
       </Show>
       <GridItem paddingTop={3} area={"body"}>
-        <HeadingTitle gameQuery={gameQuery} />
+        <HeadingTitle />
         <HStack paddingX={3}>
-          <PlatformMenu
-            labelId={gameQuery.platformsId}
-            selectedPlatform={(platforms) => {
-              setGameQuery({ ...gameQuery, platformsId: platforms.id });
-            }}
-          />
-          <SortSelector
-            label={gameQuery.ordering}
-            selectedSort={(ordering) => {
-              setGameQuery({ ...gameQuery, ordering });
-            }}
-          ></SortSelector>
+          <PlatformMenu />
+          <SortSelector></SortSelector>
         </HStack>
-        <GridGameCard gameQuery={gameQuery} />
+        <GridGameCard />
       </GridItem>
     </Grid>
   );
