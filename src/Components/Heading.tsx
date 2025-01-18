@@ -1,4 +1,6 @@
 import { GameQuery } from "@/App";
+import { useGenre } from "@/hook/useGenre";
+import { usePlatform } from "@/hook/usePlatform";
 import { Heading } from "@chakra-ui/react";
 
 interface Props {
@@ -6,6 +8,9 @@ interface Props {
 }
 
 export default function HeadingTitle({ gameQuery }: Props) {
+  const genreLabel = useGenre(gameQuery.genreId);
+  const platformLabel = usePlatform(gameQuery.platformsId);
+
   return (
     <Heading
       paddingBottom={5}
@@ -14,7 +19,7 @@ export default function HeadingTitle({ gameQuery }: Props) {
       fontSize={"4xl"}
       color={"gray.500"}
     >
-      Game : {gameQuery.platforms?.name} {gameQuery.genre?.name}
+      Game : {platformLabel?.name} {genreLabel?.name}
     </Heading>
   );
 }

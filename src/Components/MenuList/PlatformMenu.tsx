@@ -1,3 +1,4 @@
+import { usePlatform } from "@/hook/usePlatform";
 import usePlatformFilter, { PlatformFilter } from "@/hook/usePlatformFilter";
 import {
   Box,
@@ -11,17 +12,18 @@ import { BsBoxArrowDownLeft } from "react-icons/bs";
 
 interface Param {
   selectedPlatform: (platform: PlatformFilter) => void;
-  label?: string;
+  labelId?: number;
 }
 
-export default function PlatformMenu({ selectedPlatform, label }: Param) {
+export default function PlatformMenu({ selectedPlatform, labelId }: Param) {
   const { data } = usePlatformFilter();
+  const labelFind = usePlatform(labelId);
   return (
     <Box>
       <MenuRoot>
         <MenuTrigger asChild>
           <Button variant={"outline"} size="sm">
-            {label || "Platform"} <BsBoxArrowDownLeft />
+            {labelFind?.name || "Platform"} <BsBoxArrowDownLeft />
           </Button>
         </MenuTrigger>
         <MenuContent position={"absolute"}>

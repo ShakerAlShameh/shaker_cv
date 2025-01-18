@@ -20,6 +20,8 @@
 
 # install React Query # :: npm i @tanstack/react-query-devtools
 
+# install Infinite Scroll # :: npm i react-infinite-scroll-component
+
 ##############################################################################
 
 # install Chakra Whit Vite # :: npm i @chakra-ui/react @emotion/react
