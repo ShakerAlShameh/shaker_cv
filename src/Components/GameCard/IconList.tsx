@@ -1,4 +1,4 @@
-import { Platforms } from "@/hook/useGames";
+import { Platforms } from "@/entities/Platforms";
 import {
   FaWindows,
   FaAndroid,

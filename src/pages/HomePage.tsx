@@ -1,19 +1,18 @@
+import GridGameCard from "@/Components/GameCard/GridGameCard";
+import GenresList from "@/Components/GenresList/GenresList";
+import HeadingGenres from "@/Components/GenresList/HeadingGenres";
+import HeadingTitle from "@/Components/Heading/Heading";
+import PlatformMenu from "@/Components/MenuList/PlatformMenu";
+import SortSelector from "@/Components/MenuList/SortSelector";
 import {
   Grid,
-  GridItem,
-  HStack,
   Show,
   useBreakpointValue,
+  GridItem,
+  HStack,
 } from "@chakra-ui/react";
-import NavBar from "./Components/NavBar/NavBar";
-import GridGameCard from "./Components/GameCard/GridGameCard";
-import GenresList from "./Components/GenresList/GenresList";
-import PlatformMenu from "./Components/MenuList/PlatformMenu";
-import SortSelector from "./Components/MenuList/SortSelector";
-import HeadingTitle from "./Components/Heading";
-import HeadingGenres from "./Components/GenresList/HeadingGenres";
 
-export default function App() {
+export default function HomePage() {
   return (
     <Grid
       templateColumns={{
@@ -21,14 +20,11 @@ export default function App() {
         lg: "230px 1fr",
       }}
       templateAreas={{
-        base: `"nav" "body"`,
-        md: `"nav nav" "side body"`,
-        lg: `"nav nav" "side body"`,
+        base: `"body"`,
+        md: `"side body"`,
+        lg: `"side body"`,
       }}
     >
-      <GridItem area={"nav"}>
-        <NavBar />
-      </GridItem>
       <Show when={useBreakpointValue({ base: false, md: true, lg: true })}>
         <GridItem paddingLeft={1} paddingTop={2} area={"side"}>
           <HeadingGenres />

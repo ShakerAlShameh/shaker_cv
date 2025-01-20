@@ -8,17 +8,17 @@
 
 # install Hook Form # :: npm i react-hook-form
 
-# install Resolvers From Hook Form # :: npm i @hookform/resolvers
+# install Resolvers From Hook # :: npm i @hookform/resolvers
 
 # install Api Request # :: npm i axios
 
 # install React Icons # :: npm i react-icons
 
-# install Vercel To Deploy # :: npm i -g vercel
+# install React Router # :: npm i react-router-dom
 
 # install React Query # :: npm i @tanstack/react-query
 
-# install React Query # :: npm i @tanstack/react-query-devtools
+# install React Query Devtools # :: npm i @tanstack/react-query-devtools
 
 # install Infinite Scroll # :: npm i react-infinite-scroll-component
 

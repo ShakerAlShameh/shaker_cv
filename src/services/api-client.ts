@@ -23,6 +23,10 @@ class APIClient<T> {
       .get<Response<T>>(this.endpoint, config)
       .then((e) => e.data);
   };
+
+  get = (id: string | number) => {
+    return axiosInstants.get<T>(this.endpoint + "/" + id).then((e) => e.data);
+  };
 }
 
 export default APIClient;

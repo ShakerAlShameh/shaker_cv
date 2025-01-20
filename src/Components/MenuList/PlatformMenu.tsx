@@ -1,6 +1,7 @@
+import { Platforms } from "@/entities/Platforms";
 import useGameQueryStore from "@/hook/useGameQueryStore";
 import { usePlatform } from "@/hook/usePlatform";
-import usePlatformFilter, { PlatformFilter } from "@/hook/usePlatformFilter";
+import usePlatforms from "@/hook/usePlatforms";
 import {
   Box,
   Button,
@@ -13,9 +14,9 @@ import { BsBoxArrowDownLeft } from "react-icons/bs";
 
 export default function PlatformMenu() {
   const labelId = useGameQueryStore((e) => e.gameQuery.platformsId);
-  const setPlatformId = useGameQueryStore((e) => e.setPlatformId);
-  const { data } = usePlatformFilter();
   const labelFind = usePlatform(labelId);
+  const setPlatformId = useGameQueryStore((e) => e.setPlatformId);
+  const { data } = usePlatforms();
   return (
     <Box>
       <MenuRoot>
@@ -25,7 +26,7 @@ export default function PlatformMenu() {
           </Button>
         </MenuTrigger>
         <MenuContent position={"absolute"}>
-          {data?.results.map((platform: PlatformFilter) => (
+          {data?.results.map((platform: Platforms) => (
             <MenuItem
               key={platform.id}
               onClick={() => {
