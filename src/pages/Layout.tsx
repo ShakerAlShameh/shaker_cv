@@ -9,7 +9,13 @@ export default function Layout() {
   return (
     <>
       {isMobile() && (
-        <Alert.Root m={2} status="warning">
+        <Alert.Root
+          w={"80%"}
+          alignContent={"center"}
+          justifyContent={"center"}
+          m={2}
+          status="warning"
+        >
           <Alert.Indicator />
           <Alert.Title>
             For the best experience, visit me on a laptop or PC !

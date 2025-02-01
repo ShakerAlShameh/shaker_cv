@@ -17,7 +17,7 @@ const ContainerEducation = () => {
         with emerging technologies and explored areas like web development, and
         mobile app development to expand my knowledge base.
       </Text>
-      <Card.Root mt={10} p={5} m={5} w={"80%"}>
+      <Card.Root mt={10} p={5} m={5} w={{ base: "100%", md: "80%", lg: "80%" }}>
         <HStack alignItems={"start"} justifyContent="top">
           <Stack>
             <Box w={{ base: "120px", md: "250px" }}>

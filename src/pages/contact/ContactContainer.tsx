@@ -31,7 +31,7 @@ const ContactContainer = () => {
         opportunities and would love to hear from you!
       </Text>
       <SimpleGrid p={10} columns={{ base: 1, md: 3 }} gapX={16} gapY={3}>
-        <GridItem colSpan={2}>
+        <GridItem colSpan={{ base: 6, md: 2, lg: 2 }}>
           <Heading mb={5} textAlign={"start"}>
             Leave us your Information
           </Heading>
@@ -71,7 +71,7 @@ const ContactContainer = () => {
             </form>
           </Card.Root>
         </GridItem>
-        <GridItem colSpan={{ base: 2, md: 1, lg: 1 }}>
+        <GridItem colSpan={{ base: 6, md: 1, lg: 1 }}>
           <Heading mb={5} textAlign={"start"}>
             Contact Information
           </Heading>
@@ -81,12 +81,12 @@ const ContactContainer = () => {
                 <AiOutlineCompass color="yellow" size={"30px"} />
               </Box>
               <HStack px={5} justify="space-between" w="full">
-                <Text>Country:</Text>
-                <Text>Syria</Text>
+                <Text textStyle={"sm"}>Country:</Text>
+                <Text textStyle={"sm"}>Syria</Text>
               </HStack>
               <HStack px={5} justify="space-between" w="full">
-                <Text>City:</Text>
-                <Text>Damascus</Text>
+                <Text textStyle={"sm"}>City:</Text>
+                <Text textStyle={"sm"}>Damascus</Text>
               </HStack>
             </Card.Root>
             <Card.Root mt={5} alignItems={"center"} pb={9}>
@@ -94,12 +94,14 @@ const ContactContainer = () => {
                 <AiOutlineMail color="yellow" size={"30px"} />
               </Box>
               <HStack px={5} justify="space-between" w="full">
-                <Text>Email:</Text>
-                <Text ml="auto">shakershame6@gmail.com</Text>
+                <Text textStyle={"sm"}>Email:</Text>
+                <Text ml="auto" textStyle={"sm"}>
+                  shakershame6@gmail.com
+                </Text>
               </HStack>
               <HStack px={5} justify="space-between" w="full">
-                <Text>Phone Number:</Text>
-                <Text>+963998552006</Text>
+                <Text textStyle={"sm"}>Phone Number:</Text>
+                <Text textStyle={"sm"}>+963998552006</Text>
               </HStack>
             </Card.Root>
           </Card.Root>

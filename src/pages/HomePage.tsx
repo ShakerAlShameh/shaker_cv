@@ -1,6 +1,5 @@
-import { SimpleGrid, Stack } from "@chakra-ui/react";
+import { Container, Flex, SimpleGrid } from "@chakra-ui/react";
 import ContainerUserInfo from "./ContainerUserInfo";
-import "./home.css";
 import ContainerServices from "./services/ContainerServices";
 import LanguagesContainer from "./skills/LanguagesContainer";
 import SkillsContainer from "./skills/SkillsContainer";
@@ -12,15 +11,16 @@ import ContactContainer from "./contact/ContactContainer";
 
 const HomePage = () => {
   return (
-    <>
+    <Container boxSizing={"content-box"} centerContent>
       <NavBar />
-      <Stack
-        maxW={"100vw"}
-        display={"flex"}
+      <Flex
+        maxW={"100%"}
+        direction={"column"}
         placeItems={"center"}
         justifyContent={"center"}
         alignItems={"center"}
         textAlign={"center"}
+        margin={"0 auto"}
       >
         <ContainerUserInfo />
         <SimpleGrid
@@ -38,8 +38,8 @@ const HomePage = () => {
         <WorkHistory />
         <ContainerEducation />
         <ContactContainer />
-      </Stack>
-    </>
+      </Flex>
+    </Container>
   );
 };
 

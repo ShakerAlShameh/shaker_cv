@@ -27,7 +27,7 @@ const ContainerUserInfo = () => {
       alignItems="center"
       justifyContent="center"
       px={10}
-      mt={20}
+      mt={5}
       w={"80%"}
     >
       <Flex py={10}>

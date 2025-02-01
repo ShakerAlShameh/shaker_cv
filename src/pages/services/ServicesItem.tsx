@@ -9,12 +9,7 @@ interface Props {
 const ServicesItem = ({ label, logo, subTitle }: Props) => {
   return (
     <Box>
-      <Card.Root
-        alignItems={"center"}
-        justifyContent={"center"}
-        boxSize={60}
-        w={"350px"}
-      >
+      <Card.Root p={5} alignItems={"center"} justifyContent={"center"} w={80}>
         <Image
           w={"100px"}
           h={"70px"}
