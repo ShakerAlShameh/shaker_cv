@@ -15,7 +15,13 @@ const CardSwiper = ({ label, image, id, fit, padding }: Props) => {
       _hover={{ transform: "scale(1.03)", transition: ".13s ease-in" }}
       overflow="hidden"
       borderRadius={12}
-      onClick={() => window.open("project/" + id, "_blank", "noreferrer")}
+      onClick={() =>
+        window.open(
+          "https://shaker-cv.onrender.com/" + id,
+          "_blank",
+          "noreferrer"
+        )
+      }
       w={80}
     >
       <Image
