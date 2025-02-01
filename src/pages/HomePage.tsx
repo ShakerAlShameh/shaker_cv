@@ -1,44 +1,46 @@
-import GridGameCard from "@/Components/GameCard/GridGameCard";
-import GenresList from "@/Components/GenresList/GenresList";
-import HeadingGenres from "@/Components/GenresList/HeadingGenres";
-import HeadingTitle from "@/Components/Heading/Heading";
-import PlatformMenu from "@/Components/MenuList/PlatformMenu";
-import SortSelector from "@/Components/MenuList/SortSelector";
-import {
-  Grid,
-  Show,
-  useBreakpointValue,
-  GridItem,
-  HStack,
-} from "@chakra-ui/react";
+import { SimpleGrid, Stack } from "@chakra-ui/react";
+import ContainerUserInfo from "./ContainerUserInfo";
+import "./home.css";
+import ContainerServices from "./services/ContainerServices";
+import LanguagesContainer from "./skills/LanguagesContainer";
+import SkillsContainer from "./skills/SkillsContainer";
+import ExtraSkillsContainer from "./skills/ExtraSkillsContainer";
+import ContainerEducation from "./education/ContainerEducation";
+import WorkHistory from "./work/WorkHistory";
+import { NavBar } from "./work/NavBar";
+import ContactContainer from "./contact/ContactContainer";
 
-export default function HomePage() {
+const HomePage = () => {
   return (
-    <Grid
-      templateColumns={{
-        base: "1fr",
-        lg: "230px 1fr",
-      }}
-      templateAreas={{
-        base: `"body"`,
-        md: `"side body"`,
-        lg: `"side body"`,
-      }}
-    >
-      <Show when={useBreakpointValue({ base: false, md: true, lg: true })}>
-        <GridItem paddingLeft={1} paddingTop={2} area={"side"}>
-          <HeadingGenres />
-          <GenresList />
-        </GridItem>
-      </Show>
-      <GridItem paddingTop={3} area={"body"}>
-        <HeadingTitle />
-        <HStack paddingX={3}>
-          <PlatformMenu />
-          <SortSelector></SortSelector>
-        </HStack>
-        <GridGameCard />
-      </GridItem>
-    </Grid>
+    <>
+      <NavBar />
+      <Stack
+        maxW={"100vw"}
+        display={"flex"}
+        placeItems={"center"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        textAlign={"center"}
+      >
+        <ContainerUserInfo />
+        <SimpleGrid
+          columns={{ base: 1, md: 2, lg: 3 }}
+          gapX={{ base: "10px", md: "100px", lg: "200px" }}
+          mt={"20px"}
+          gapY={{ base: "20px" }}
+          justifyItems={"center"}
+        >
+          <LanguagesContainer />
+          <SkillsContainer />
+          <ExtraSkillsContainer />
+        </SimpleGrid>
+        <ContainerServices />
+        <WorkHistory />
+        <ContainerEducation />
+        <ContactContainer />
+      </Stack>
+    </>
   );
-}
+};
+
+export default HomePage;
