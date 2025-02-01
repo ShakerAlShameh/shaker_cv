@@ -17,7 +17,7 @@ const CardSwiper = ({ label, image, id, fit, padding }: Props) => {
       borderRadius={12}
       onClick={() =>
         window.open(
-          "https://shaker-cv.onrender.com/" + id,
+          "https://shaker-cv.onrender.com/project/" + id,
           "_blank",
           "noreferrer"
         )
