@@ -1,5 +1,3 @@
-import { Field } from "@/Components/ui/field";
-import { AiOutlineCompass, AiOutlineMail } from "react-icons/ai";
 import {
   Text,
   Button,
@@ -12,8 +10,27 @@ import {
   HStack,
   Box,
 } from "@chakra-ui/react";
+import { Field } from "@/Components/ui/field";
+import { AiOutlineCompass, AiOutlineMail } from "react-icons/ai";
+import { useForm } from "react-hook-form";
+import { createClient } from "@supabase/supabase-js";
+import { useState } from "react";
+import { Toaster, toaster } from "@/Components/ui/toaster";
 
+interface FormProps {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+}
+const supabase = createClient(
+  import.meta.env.VITE_SUPABASE_URL,
+  import.meta.env.VITE_SUPABASE_ANON_KEY
+);
 const ContactContainer = () => {
+  const { register, handleSubmit } = useForm<FormProps>();
+  const [loading, setLoading] = useState(false);
+
   return (
     <>
       <Text id="contact" pt={10} fontSize={27} fontWeight={"bold"}>
@@ -36,14 +53,32 @@ const ContactContainer = () => {
             Leave us your Information
           </Heading>
           <Card.Root p={5}>
-            <form>
+            <form
+              onSubmit={handleSubmit(async (data) => {
+                setLoading(true);
+                const { error } = await supabase.from("emails").insert(data);
+                setLoading(false);
+                if (error)
+                  toaster.create({
+                    title: `Error!!`,
+                    type: "error",
+                  });
+                toaster.create({
+                  title: `Email Send Success`,
+                  type: "success",
+                });
+              })}
+            >
               <Field
                 colorPalette={"yellow"}
                 label="Full Name"
                 required
                 errorText=""
               >
-                <Input placeholder="Enter your full name" />
+                <Input
+                  {...register("name")}
+                  placeholder="Enter your full name"
+                />
               </Field>
               <Field
                 my={5}
@@ -52,10 +87,13 @@ const ContactContainer = () => {
                 required
                 errorText=""
               >
-                <Input placeholder="Enter your email" />
+                <Input {...register("email")} placeholder="Enter your email" />
               </Field>
               <Field colorPalette={"yellow"} label="Subject" errorText="">
-                <Input placeholder="Enter your subject" />
+                <Input
+                  {...register("subject")}
+                  placeholder="Enter your subject"
+                />
               </Field>
               <Field
                 my={5}
@@ -63,11 +101,20 @@ const ContactContainer = () => {
                 label="Message"
                 errorText=""
               >
-                <Textarea placeholder="Enter your Message" />
+                <Textarea
+                  {...register("message")}
+                  placeholder="Enter your Message"
+                />
               </Field>
-              <Button my={5} colorPalette={"yellow"}>
+              <Button
+                disabled={loading}
+                type="submit"
+                my={5}
+                colorPalette={"yellow"}
+              >
                 SEND MESSAGE
               </Button>
+              <Toaster />
             </form>
           </Card.Root>
         </GridItem>
