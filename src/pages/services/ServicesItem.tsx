@@ -10,12 +10,7 @@ const ServicesItem = ({ label, logo, subTitle }: Props) => {
   return (
     <Box>
       <Card.Root p={5} alignItems={"center"} justifyContent={"center"} w={80}>
-        <Image
-          w={"100px"}
-          h={"70px"}
-          fit={"fill"}
-          src={`../src/assets/${logo}.svg`}
-        />
+        <Image w={"100px"} h={"70px"} fit={"fill"} src={logo} />
         <Heading pb={3} pt={7} className="custom-text">
           {label}
         </Heading>

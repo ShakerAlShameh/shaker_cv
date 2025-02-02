@@ -1,37 +1,44 @@
 import { SimpleGrid, Text } from "@chakra-ui/react";
 import ServicesItem from "./ServicesItem";
+import web from "@/assets/web.svg";
+import mobile from "@/assets/mobile.svg";
+import windows from "@/assets/windows.svg";
+
+import sql from "@/assets/sql.svg";
+import design from "@/assets/design.svg";
+import api from "@/assets/api.svg";
 
 const ContainerServices = () => {
   const items = [
     {
       label: "Web Development",
-      logo: "web",
+      logo: web,
       subTitle: "React,Next js",
     },
     {
       label: "Mobile Development",
-      logo: "mobile",
+      logo: mobile,
       subTitle: "Flutter,Bloc",
     },
     {
       label: "Windows Application",
-      logo: "windows",
+      logo: windows,
       subTitle: "Flutter,C#",
     },
     {
       label: "Database",
-      logo: "sql",
+      logo: sql,
       subTitle: "mysql,mongodb",
     },
 
     {
       label: "Design",
-      logo: "design",
+      logo: design,
       subTitle: "ux,ud,figma",
     },
     {
       label: "Reset Api",
-      logo: "api",
+      logo: api,
       subTitle: "Node js,Next js",
     },
   ];

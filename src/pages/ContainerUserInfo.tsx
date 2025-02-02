@@ -9,6 +9,7 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 import { RiArrowRightLine } from "react-icons/ri";
+import avatar from "@/assets/avatar.svg";
 
 const ContainerUserInfo = () => {
   const scrollToSection = () => {
@@ -76,12 +77,7 @@ const ContainerUserInfo = () => {
           </Button>
         </Box>
         <Show when={useBreakpointValue({ base: false, md: true, lg: true })}>
-          <Image
-            pr={20}
-            w={"200px"}
-            fit={"fill"}
-            src="../src/assets/avatar.svg"
-          />
+          <Image pr={20} w={"200px"} fit={"fill"} src={avatar} />
         </Show>
       </Flex>
     </Card.Root>
